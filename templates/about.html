@@ -1,0 +1,66 @@
+
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url(' {{ url_for('static', filename = 'img/hola.png')}} ')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Request Team Acess</h1>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <form id="requestForm" action="/about" method="POST" data-sb-form-api-token="API_TOKEN">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="my-5">
+                    <label for="email">Please Enter Your Email Address</label>
+                        <input class="form-control" id="email2" name = "email2" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
+                        
+                        <div class="invalid-feedback" data-sb-feedback="email:required">An email Is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                    
+                    
+        <br>Choose a teamAdmin<br><SELECT name="email">
+            {% for c in teamList %}
+                <OPTION value={{c.sno}}>{{c.teamadmin}}</option>
+    
+            {% endfor %}
+            </SELECT>
+
+        <br><br>Choose a teamName<br><SELECT name="name">
+            {% for c in teamList %}
+                <OPTION value={{c.sno}}>{{c.teamname}}</option>
+            {% endfor %}
+                </SELECT>
+
+                
+            <br>    <br>Choose a teamSize<br><SELECT name="size">
+                    {% for c in teamList %}
+                        <OPTION value={{c.sno}}>{{c.teamsize}}</option>
+                    {% endfor %}
+                        </SELECT>
+            
+                        <br>    <br>Choose a teamCode<br><SELECT name="code">
+                            {% for c in teamList %}
+                                <OPTION value={{c.sno}}>{{c.teamCode}}</option>
+                            {% endfor %}
+                                </SELECT>
+        
+            
+             <br><br> <button class="btn btn-primary" id="requestButton" type="submit">Request</button>
+
+            </div>
+        </div>
+        </div>
+        </form>
+        
+        
+
+{% endblock %}
+
